@@ -25,6 +25,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=cache,target=/var/cache/apt \
     --mount=type=cache,target=/var/lib/apt \
     apt-get update && \
+    apt-get install -y --no-install-recommends libatomic1 \
     uv run playwright install-deps chromium && \
     uv run playwright install chromium && \
     uv sync --all-extras --compile-bytecode && \
